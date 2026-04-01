@@ -55,13 +55,13 @@ unsupervised methods over supervised ones is a meaningful distinction.
 
 ## Cluster Interpretations
 
-*[outcomes]*
+The clustering analysis reveals three distinct operational patterns driven primarily by support channels rather than ticket type or priority. Cluster 1, dominated by chat and social media, represents a high volume workload that contributes the majority of total operational effort, indicating a scale driven burden with strong potential for automation. Cluster 2, centered around email, shows the highest resolution time per ticket, highlighting inefficiencies in handling, likely due to unstructured input and slower workflows. Cluster 0, associated with phone support, reflects a stable and moderate workload with balanced characteristics, suggesting consistent but less scalable operations. Together, these clusters indicate that workload is shaped by how requests enter the system, with volume driving effort in digital channels and process inefficiencies driving time in email based support.
 
 ---
 
 ## Business Recommendation
 
-*[outcomes]*
+For high volume chat and social media channels, the priority is reducing incoming ticket volume through automation, including AI chatbots, self service flows, and automatic classification to handle repetitive queries at scale. For email based support, efforts should target efficiency improvements by introducing structured intake forms, AI powered summarization, and intelligent routing to reduce resolution time and minimize back and forth communication. Phone support, being stable and less scalable for automation, should be optimized through better routing and agent assist tools rather than heavy automation. Overall, the strategy should combine volume reduction in high traffic channels with workflow optimization in high effort channels to achieve meaningful operational efficiency gains.
 
 ---
 
