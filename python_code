@@ -1,1 +1,47 @@
+#First adding column Resolution Hours
+df['ResolutionHours'] = abs((df['TimetoResolution'] - df['FirstResponseTime']).dt.total_seconds()) / 3600
+print(df['ResolutionHours'].describe())
+# OUTPUT: count    2769.000000
+mean        7.742368
+std         5.613346
+min         0.000000
+25%         3.016667
+50%         6.700000
+75%        11.650000
+max        23.466667
+# encode priority as ordinal number
+priority_map = {'Low': 1, 'Medium': 2, 'High': 3, 'Critical': 4}
+df['PriorityEncoded'] = df['TicketPriority'].map(priority_map)
 
+# one hot encode categorical columns
+type_dummies = pd.get_dummies(df['TicketType'], prefix='Type')
+subject_dummies = pd.get_dummies(df['TicketSubject'], prefix='Subject')
+channel_dummies = pd.get_dummies(df['TicketChannel'], prefix='Channel')
+
+# build feature matrix
+feature_matrix = pd.concat([
+    df[['ResolutionHours', 'PriorityEncoded', 'CustomerSatisfactionRating']],
+    type_dummies,
+    subject_dummies,
+    channel_dummies
+], axis=1)
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(feature_matrix)
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+
+inertia = []
+K_range = range(2, 11)
+
+for k in K_range:
+    km = KMeans(n_clusters=k, random_state=42)
+    km.fit(X_scaled)
+    inertia.append(km.inertia_)
+
+plt.plot(K_range, inertia, marker='o')
+plt.xlabel('Number of clusters')
+plt.ylabel('Inertia')
+plt.title('Elbow Method')
+plt.show()
