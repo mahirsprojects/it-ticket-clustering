@@ -1,4 +1,4 @@
-#Based on elbo method graph, we take K as 3
+#Based on elbow method graph, we take K as 3
 kmeans = KMeans(n_clusters=3, random_state=42)
 df["cluster"] = kmeans.fit_predict(X_scaled)
 
