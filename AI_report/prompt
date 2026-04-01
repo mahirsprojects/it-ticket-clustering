@@ -1,1 +1,148 @@
+You are a data analyst and operations consultant. Write a comprehensive, professional report based on the clustering analysis results provided below.
 
+Your objective is to answer this business question:
+
+Which ticket channels consume the most operational effort, and where would an automated AI triage system reduce the load on human routing?
+
+---
+
+DATA CONTEXT:
+
+The dataset consists of IT support tickets with the following relevant features:
+
+- TicketType (Billing, Cancellation, Product, Refund, Technical)
+- TicketChannel (Phone, Chat, Social Media, Email)
+- TicketPriority (Low, Medium, High, Critical)
+- ResolutionHours (time taken to resolve tickets)
+
+Clustering was performed using KMeans (K=3). The following results were obtained:
+
+1. Average Resolution Time per Cluster:
+Cluster 0 → 7.43 hours  
+Cluster 1 → 7.82 hours  
+Cluster 2 → 7.90 hours  
+
+2. Total Resolution Time (Operational Effort):
+Cluster 0 → 5135 hours  
+Cluster 1 → 10614 hours  
+Cluster 2 → 5688 hours  
+
+3. Channel Distribution:
+Cluster 0 → Phone (691)  
+Cluster 1 → Chat (674), Social Media (684)  
+Cluster 2 → Email (720)  
+
+4. Ticket Type Distribution:
+All clusters contain a balanced mix of ticket types.
+
+5. Priority Distribution:
+All clusters contain a balanced mix of priorities.
+
+---
+
+IMPORTANT OBSERVATIONS (must be used in reasoning):
+
+- Ticket type does NOT drive workload concentration  
+- Product does NOT drive workload concentration  
+- Channel and volume ARE the primary drivers  
+- Email has higher time per ticket  
+- Chat and Social Media have higher total workload  
+
+---
+
+INSTRUCTIONS FOR THE REPORT:
+
+Write a structured, detailed report with the following sections:
+
+---
+
+1. Executive Summary  
+- Clearly answer the main question in 3–5 sentences  
+- Highlight the biggest insight and business implication  
+
+---
+
+2. Key Findings  
+- Interpret each major result (clusters, effort, channels, etc.)  
+- Explain what actually drives operational effort  
+- Avoid just restating numbers, focus on meaning  
+
+---
+
+3. Cluster Level Interpretation  
+For each cluster:
+- Describe its characteristics  
+- Explain what kind of workload it represents  
+- Identify inefficiencies or patterns  
+
+---
+
+4. Root Cause Analysis  
+- Explain WHY workload is concentrated in certain channels  
+- Discuss operational or process reasons (not just data)  
+
+---
+
+5. Strategic Business Recommendations  
+- Clearly separate:
+  - Volume reduction strategies  
+  - Efficiency improvement strategies  
+  - Routing optimization strategies  
+
+---
+
+6. AI Triage System Design (Very Important)  
+- Explain how an AI triage system should work in this business  
+- Include:
+  - input (what data it uses)  
+  - decision logic  
+  - output (routing, automation, prioritization)  
+
+---
+
+7. Specific Deployable Solutions (Practical Layer)  
+Give concrete, real implementations such as:
+- chatbot flows  
+- auto classification pipelines  
+- routing rules  
+- agent assist tools  
+- email summarization systems  
+
+Each solution must:
+- map to a specific cluster  
+- explain expected impact  
+
+---
+
+8. Prioritization of Actions  
+- What should be done first, second, third  
+- Based on ROI and impact  
+
+---
+
+9. Risks and Limitations  
+- Where AI might fail  
+- Operational constraints  
+- Data limitations  
+
+---
+
+10. Final Conclusion  
+- One strong paragraph tying everything together  
+- Reinforce how the business should act  
+
+---
+
+STYLE REQUIREMENTS:
+
+- Write in a professional consulting tone  
+- Avoid generic statements  
+- Focus on business impact, not just technical explanation  
+- Make insights actionable  
+- Be clear, structured, and precise  
+
+---
+
+GOAL:
+
+The final report should read like a real consulting deliverable that could be presented to a company leadership team deciding how to improve support operations using AI.
