@@ -1,0 +1,64 @@
+#Based on elbo method graph, we take K as 3
+kmeans = KMeans(n_clusters=3, random_state=42)
+df["cluster"] = kmeans.fit_predict(X_scaled)
+
+#gathering Insights
+df.groupby("cluster")["ResolutionHours"].mean()
+
+# OUTPUT: cluster
+0    7.432151
+1    7.815992
+2    7.901227
+Name: ResolutionHours
+
+df.groupby(["cluster", "TicketType"]).size()
+
+#OUTPUT: cluster  TicketType          
+0        Billing inquiry         137
+         Cancellation request    118
+         Product inquiry         147
+         Refund request          138
+         Technical issue         151
+1        Billing inquiry         273
+         Cancellation request    244
+         Product inquiry         260
+         Refund request          287
+         Technical issue         294
+2        Billing inquiry         134
+         Cancellation request    154
+         Product inquiry         126
+         Refund request          171
+         Technical issue         135
+
+df.groupby(["cluster", "TicketChannel"]).size()
+
+#OUTPUT: cluster  TicketChannel
+0        Phone            691
+1        Chat             674
+         Social media     684
+2        Email            720
+
+df.groupby(["cluster", "TicketPriority"]).size()
+
+#OUTPUT:
+luster  TicketPriority
+0        Critical          189
+         High              172
+         Low               138
+         Medium            192
+1        Critical          348
+         High              359
+         Low               332
+         Medium            319
+2        Critical          189
+         High              174
+         Low               174
+         Medium            183
+
+df.groupby("cluster")["ResolutionHours"].sum()
+
+#OUTPUT: cluster
+0     5135.616667
+1    10614.116667
+2     5688.883333
+Name: ResolutionHours
